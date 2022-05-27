@@ -22,6 +22,7 @@ function ServerMainReach {
     Else {
     Write-Warning "$Server no responde" 
     break 
+    # Llamar a funcion para ànalisis y reparacion de sistema principal
     }
 }
 
@@ -31,6 +32,8 @@ function ServerFileZillaReach {
     }
     Else {
         Write-Error "$Server in port $FileZilla was not found"
+        # Añadir eleccion de Y/N sobre si quiere buscar soluciones a este servicio
+        # en caso de que no, omitir y proseguir con la comprobacion
     }
 }
 
