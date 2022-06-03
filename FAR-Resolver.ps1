@@ -1,4 +1,17 @@
-#Requires -RunAsAdministrator
+#Autoadmin Init
+If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+    Write-Host "You didn't run FAR-Resolver as an Administrator. FAR-Resolver will self elevate to run as an Administrator and continue."
+    Start-Sleep 1
+    Write-Host "                                               3"
+    Start-Sleep 1
+    Write-Host "                                               2"
+    Start-Sleep 1
+    Write-Host "                                               1"
+    Start-Sleep 1
+    Start-Process powershell.exe -ArgumentList ("-NoProfile -ExecutionPolicy Bypass -File `"{0}`"" -f $PSCommandPath) -Verb RunAs
+    Exit
+}
+#AutoAdmin End
 Clear-Host
 $host.ui.RawUI.WindowTitle = "FAR-Resolver 1.0 by ContratopDev"
 
@@ -8,11 +21,9 @@ function execmode {
     $choices = New-Object Collections.ObjectModel.Collection[Management.Automation.Host.ChoiceDescription]
     $choices.Add((New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&Asistido'))
     $choices.Add((New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&Manual'))
-    $choices.Add((New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&CargarEXT'))
     $decision = $Host.UI.PromptForChoice($title, $question, $choices, 0)
     if ($decision -eq 0) {
         Clear-Host
-    elseif ($decision -eq 1) ###CONTINUAR POR AQUI
     } else {
         Write-Warning "Modo manual (Avanzado) seleccionado"
         Start-Sleep -Seconds 5

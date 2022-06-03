@@ -1,6 +1,4 @@
-Descargar imagen del sistema Windows
----COMPROBAR ERRORES---
-EJECUTAR ANALISIS DE ESTADO DEL SISTEMA SFC
+
 
 
 auto desinstalar mierdecilla
