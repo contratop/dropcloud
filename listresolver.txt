@@ -1,0 +1,33 @@
+Descargar imagen del sistema Windows
+---COMPROBAR ERRORES---
+EJECUTAR ANALISIS DE ESTADO DEL SISTEMA SFC
+
+
+auto desinstalar mierdecilla
+
+sistema de carga de modulos externos
+
+
+
+#RESOLVER RAPIDO
+
+################
+
+Bloques de codigo:
+CHOICE /C YNC /M "Press Y for Yes, N for No or C for Cancel."
+
+
+
+IF %MENU_OPTION%==1 GOTO OPTION1
+IF %MENU_OPTION%==2 GOTO OPTION2
+IF %MENU_OPTION%==3 GOTO OPTION3
+
+
+
+fases de escaneo
+
+1- checkhealth
+2- scanhealth
+3- restorehealth
+4- sfc scannow
+
