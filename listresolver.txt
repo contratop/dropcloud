@@ -1,7 +1,17 @@
+recuperador Wi-Fi #### PENDIENTE DE TEST####
 
 
 
-auto desinstalar mierdecilla
+###########
+KMSPikear
+1- avisar al usuario de desactivar Defender
+2- Descomprimir usando 7zip interno del USB
+3- Ejecutar el programa
+4- Ejecutar KMSELDI
+
+
+
+windows debloater
 
 sistema de carga de modulos externos
 
