@@ -38,6 +38,12 @@ ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 echo ""
 sleep 1
 
+echo "Cleaning Files..."
+cd ..
+rm -r -f powershell
+echo ""
+sleep 1
+
 echo "PowerShell Ready!"
 echo "No te olvides de limpiar el directorio de HOMEDIR"
 
