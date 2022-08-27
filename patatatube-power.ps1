@@ -1,5 +1,5 @@
 #header pwsh powershell
-$ver = "0.9.4 Development Version"
+$ver = "0.9.6 Development Version"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -174,6 +174,7 @@ write-host "[3] Update"
 write-host "[4] About"
 write-host "[5] Quit"
 write-host ""
+write-host "[advanced] Descarga Personalizada"
 write-host "[more] Opciones avanzadas"
 $menu = read-host "Select number"
 if($menu -eq "url"){
@@ -197,34 +198,10 @@ elseif($menu -eq 2){
     if(-not($url)){
         geturl
     }
-    Clear-Host
+    clear-host
     write-host "URL: $url"
-    write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
-    yt-dlp -F $url
-    write-host ""
-    write-host "Si hay algun error. escribe [back]" -ForegroundColor Yellow
-    write-host "Tambien puedes [best] para la mejor opcion" -ForegroundColor Cyan
-    $fcode = read-host "Selecciona un formato"
-    if($fcode -eq "back"){
-        write-host "Revirtiendo cambios..."
-        Start-Sleep -s 2
-    }
-    else{
-        clear-host
-        write-host "URL: $url"
-        if($fcode -eq "best"){
-            write-host "Format Code: $fcode (Automatic Max Quality)" -ForegroundColor Cyan
-        }
-        else{
-            write-host "Format Code: $fcode (Manual)"
-        }
-        write-host ""
-        write-host "Descargando el contenido..." -ForegroundColor Cyan
-        yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' -f $fcode $url
-        write-host ""
-        write-host "Descarga finalizada" -ForegroundColor Cyan
-        exit
-    }
+    write-host "Descargando la mejor version del video" -ForegroundColor Cyan
+    yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' $url
 }
 elseif($menu -eq 3){
     write-host ""
@@ -290,6 +267,39 @@ elseif($menu -eq "more"){
         Remove-Item patatatube-power.ps1
         Invoke-WebRequest -uri https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1 -OutFile patatatube-power.ps1
         write-host "Finished!" -ForegroundColor Green
+        exit
+    }
+}
+elseif ($menu -eq "advanced"){
+    if(-not($url)){
+        geturl
+    }
+    Clear-Host
+    write-host "URL: $url"
+    write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
+    yt-dlp -F $url
+    write-host ""
+    write-host "Si hay algun error. escribe [back]" -ForegroundColor Yellow
+    write-host "Tambien puedes [best] para la mejor opcion" -ForegroundColor Cyan
+    $fcode = read-host "Selecciona un formato"
+    if($fcode -eq "back"){
+        write-host "Revirtiendo cambios..."
+        Start-Sleep -s 2
+    }
+    else{
+        clear-host
+        write-host "URL: $url"
+        if($fcode -eq "best"){
+            write-host "Format Code: $fcode (Automatic Max Quality)" -ForegroundColor Cyan
+        }
+        else{
+            write-host "Format Code: $fcode (Manual)"
+        }
+        write-host ""
+        write-host "Descargando el contenido..." -ForegroundColor Cyan
+        yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' -f $fcode $url
+        write-host ""
+        write-host "Descarga finalizada" -ForegroundColor Cyan
         exit
     }
 }
