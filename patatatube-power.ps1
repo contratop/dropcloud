@@ -201,7 +201,7 @@ elseif($menu -eq 5){
 elseif($menu -eq "debugupdate"){
     Write-Warning "Debug Updater"
     write-host "Only for developers" -ForegroundColor Yellow
-    wget https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1
+    Invoke-WebRequest -uri https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1 -OutFile patatatube-power.ps1
     write-host "Finished!" -ForegroundColor Green
     exit
 }
