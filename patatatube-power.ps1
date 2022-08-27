@@ -1,6 +1,6 @@
 #header
 Clear-Host
-write-host "Patatatube Power 0.4"
+write-host "Patatatube Power 0.5"
 #header end
 
 #check dependencies
