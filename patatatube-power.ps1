@@ -1,4 +1,4 @@
-#header pwsh power
+#header pwsh powersh
 $ver = "0.9.8 Test Development Preview"
 Clear-Host
 write-host "Patatatube Power $ver"
