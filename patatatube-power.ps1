@@ -1,5 +1,5 @@
 #header pwsh
-$ver = "0.9.6 Development Version"
+$ver = "0.9.7 Development Preview"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -202,6 +202,8 @@ elseif($menu -eq 2){
     write-host "URL: $url"
     write-host "Descargando la mejor version del video" -ForegroundColor Cyan
     yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' $url
+    write-host "Descarga finalizada" -ForegroundColor Green
+    exit
 }
 elseif($menu -eq 3){
     write-host ""
