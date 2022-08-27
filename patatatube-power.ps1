@@ -1,5 +1,5 @@
 #header
-$ver = "0.9"
+$ver = "0.9.1"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -182,8 +182,8 @@ elseif($menu -eq 2){
     write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
     youtube-dl -F $url
     write-host ""
-    write-host "Si no se ha procesado correctamente la lista de formatos. escribe [back]" -ForegroundColor Yellow
-    write-host "Tambien puedes especificar [best] para descargar automaticamente la mejor opcion"
+    write-host "Si hay algun error. escribe [back]" -ForegroundColor Yellow
+    write-host "Tambien puedes [best] para la mejor opcion" -ForegroundColor Cyan
     $fcode = read-host "Selecciona un formato"
     if($fcode -eq "back"){
         write-host "Revirtiendo cambios..."
