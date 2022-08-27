@@ -1,4 +1,4 @@
-#header pwsh powershell
+#header pwsh
 $ver = "0.9.6 Development Version"
 Clear-Host
 write-host "Patatatube Power $ver"
