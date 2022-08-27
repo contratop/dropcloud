@@ -1,4 +1,4 @@
-#header pwsh powersh
+#header pwsh
 $ver = "1.0"
 Clear-Host
 write-host "Patatatube Power $ver"
