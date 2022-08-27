@@ -210,6 +210,7 @@ elseif($menu -eq 3){
     Write-Warning "Datos de actualizacion no disponible"
     write-host "Contacta con la desarrolladora"
     write-host ""
+    #Invoke-WebRequest -uri "URL RAW" -OutFile patatatube-power.ps1
     write-host "Continuando en 5 segundos..."
     Start-Sleep -s 5
 }
@@ -253,7 +254,7 @@ elseif($menu -eq "more"){
             apt install wget
             pip instal youtube-dl
             python3 -m pip install -U yt-dlp
-            # INSERTAR RM Y WGET de actualizacion PARA PATATATUBE EN GITHUB POKEINALOVE ######################################################
+            #Invoke-WebRequest -uri "URL RAW" -OutFile patatatube-power.ps1
             write-host ""
             write-host "Reparacion completada" -ForegroundColor Green
             exit
