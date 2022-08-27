@@ -1,6 +1,7 @@
 #header
+$ver = "0.8"
 Clear-Host
-write-host "Patatatube Power 0.7"
+write-host "Patatatube Power $ver"
 #header end
 
 #check dependencies
@@ -134,7 +135,7 @@ write-host ""
 $exitmode = $true
 while($exitmode){
     clear-host
-write-host "Patatatube Content Downloader" -ForegroundColor Cyan
+write-host "Patatatube Content Downloader $ver" -ForegroundColor Cyan
 write-host "By " -NoNewline
 write-host "pokeinalover" -ForegroundColor Magenta
 write-host ""
