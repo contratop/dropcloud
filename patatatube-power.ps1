@@ -1,5 +1,5 @@
 #header pwsh
-$ver = "1.0"
+$ver = "1.0 Contratop Final Version"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
