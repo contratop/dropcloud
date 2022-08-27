@@ -44,7 +44,7 @@ else{
     }
 }
 
-if(Get-Command "ffmepg" -ErrorAction SilentlyContinue){
+if(Get-Command "ffmpeg" -ErrorAction SilentlyContinue){
     write-host "FFMPEG OK" -ForegroundColor Green
 }
 else{
@@ -196,6 +196,13 @@ elseif($menu -eq 4){
 elseif($menu -eq 5){
     clear-host
     write-host "Saliendo de patatatube..."
+    exit
+}
+elseif($menu -eq "debugupdate"){
+    Write-Warning "Debug Updater"
+    write-host "Only for developers" -ForegroundColor Yellow
+    wget https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1
+    write-host "Finished!" -ForegroundColor Green
     exit
 }
 else{
