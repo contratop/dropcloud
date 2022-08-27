@@ -1,5 +1,5 @@
 #header pwsh
-$ver = "0.9.1"
+$ver = "0.9.2"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -192,7 +192,12 @@ elseif($menu -eq 2){
     else{
         clear-host
         write-host "URL: $url"
-        write-host "Format Code: $fcode"
+        if($fcode -eq "best"){
+            write-host "Format Code: $fcode (Automatic Max Quality)" -ForegroundColor Cyan
+        }
+        else{
+            write-host "Format Code: $fcode (Manual)"
+        }
         write-host ""
         write-host "Descargando el contenido..." -ForegroundColor Cyan
         youtube-dl -o '/sdcard/patatatube/%(title)s.%(ext)s' -f $fcode $url
