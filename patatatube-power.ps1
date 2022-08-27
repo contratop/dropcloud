@@ -1,6 +1,6 @@
 #header
 Clear-Host
-write-host "Patatatube Power 0.5"
+write-host "Patatatube Power 0.6"
 #header end
 
 #check dependencies
@@ -156,11 +156,14 @@ write-host "[5] Quit"
 write-host ""
 $menu = read-host "Select number"
 if($menu -eq "url"){
+    write-host ""
     geturl
 }
 elseif($menu -eq 1){
     clear-host
-    geturl
+    if(-not($url)){
+        geturl
+    }
     write-host "URL: $url"
     write-host "Descargando MP3..."
     youtube-dl -o '/sdcard/patatatube/%(title)s.%(ext)s' --extract-audio --audio-format mp3 $url
@@ -170,7 +173,9 @@ elseif($menu -eq 1){
 }
 elseif($menu -eq 2){
     Clear-Host
-    geturl
+    if(-not($url)){
+        geturl
+    }
     write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
     youtube-dl -F $url
     write-host ""
