@@ -134,7 +134,7 @@ write-host ""
 $exitmode = $true
 while($exitmode){
     clear-host
-write-host "Patatatube Content Downloader" -ForegroundColor Cyan -BackgroundColor White
+write-host "Patatatube Content Downloader" -ForegroundColor Cyan
 write-host "By " -NoNewline
 write-host "pokeinalover" -ForegroundColor Magenta
 write-host ""
