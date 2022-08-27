@@ -230,7 +230,7 @@ elseif($menu -eq "debugupdate"){
 }
 else{
     Write-Warning "opcion no valida"
-    start-sleep -s 2
+    start-sleep -s 1
 }
 
 }
