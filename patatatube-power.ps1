@@ -1,5 +1,5 @@
 #header pwsh
-$ver = "0.9.3 Development Version"
+$ver = "0.9.4 Development Version"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -270,7 +270,7 @@ elseif($menu -eq "more"){
             apt install python -y
             apt install python3 -y
             apt install pip -y
-            apt install ffmepg
+            apt install ffmpeg
             apt install wget
             pip instal youtube-dl
             python3 -m pip install -U yt-dlp
