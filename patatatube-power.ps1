@@ -1,5 +1,5 @@
 #header
-$ver = "0.8.1"
+$ver = "0.8.2"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -123,7 +123,7 @@ else{
 }
 
 write-host "All Check OK" -ForegroundColor Green
-Start-Sleep -s 3
+Start-Sleep -s 1
 # function ###############################################################
 function geturl{
     $script:url = read-host "Pega la URL aqui"
