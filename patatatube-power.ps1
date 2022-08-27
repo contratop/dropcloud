@@ -1,5 +1,5 @@
 #header
-$ver = "0.8.2"
+$ver = "0.9"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
