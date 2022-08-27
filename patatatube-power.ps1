@@ -123,21 +123,29 @@ else{
 write-host "All Check OK" -ForegroundColor Green
 Start-Sleep -s 3
 
-
+function geturl{
+    $script:url = read-host "Pega la URL aqui"
+}
 write-host ""
 write-host ""
 
 # MenuInvoke
-$url = read-host "Pega la URL aqui"
 $exitmode = $true
 while($exitmode){
     clear-host
 write-host "Patatatube Content Downloader"
 write-host "By pokeinalover"
 write-host ""
-write-host "URL: $url"
+if($url){
+    write-host "URL: $url" -ForegroundColor Cyan
+}
 write-host ""
-write-host "[url] Cambiar URL"
+if($url){
+    write-host "[url] Cambiar URL"
+}
+else{
+    write-host "[url] Establecer URL"
+}
 Write-host "[1] Music"
 Write-host "[2] Video"
 write-host "[3] Update"
@@ -146,10 +154,11 @@ write-host "[5] Quit"
 write-host ""
 $menu = read-host "Select number"
 if($menu -eq "url"){
-    $url = read-host "Pega la URL aqui"
+    geturl
 }
 elseif($menu -eq 1){
     clear-host
+    geturl
     write-host "URL: $url"
     write-host "Descargando MP3..."
     youtube-dl -o '/sdcard/patatatube/%(title)s.%(ext)s' --extract-audio --audio-format mp3 $url
@@ -159,6 +168,7 @@ elseif($menu -eq 1){
 }
 elseif($menu -eq 2){
     Clear-Host
+    geturl
     write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
     youtube-dl -F $url
     write-host ""
