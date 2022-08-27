@@ -1,22 +1,42 @@
 #header
-$ver = "0.9.2"
+$ver = "0.9.2 Development Version"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
 
 #check dependencies
 write-host "Checking system..."
-if(Get-Command "youtube-dl" -ErrorAction SilentlyContinue){
+if(Get-Command "python3"){
+    write-host "Python3 OK" -ForegroundColor Green
+}
+else{
+    Write-Warning "Falta Python3"
+    $continue = read-host "Instalar Python3? [install]"
+    if($continue -eq "install"){
+        apt update
+        apt install python3
+        write-host "Reinicie patatatube" -ForegroundColor Cyan
+        exit
+    }
+    else{
+        Write-Warning "Python3 es necesario para continuar"
+        exit
+    }
+}
+
+
+
+if(Get-Command "yt-dlp" -ErrorAction SilentlyContinue){ # CHECK CORE ################
     write-host "Youtube DL OK" -ForegroundColor Green
 }
 else{
     if(Get-Command "pip" -ErrorAction SilentlyContinue){
-        Write-Warning "Youtube-DL no detectado"
+        Write-Warning "youtube-dl no detectado"
         $confirm = read-host "descargar youtube-dl? [continue]"
         if($confirm -eq "continue"){
             write-host "Descargando engine Youtube-DL"
             apt update
-            pip install youtube-dl
+            python3 -m pip install -U yt-dlp # CORE HERE ################################
             write-host "Reinicie patatatube" -ForegroundColor Cyan
             exit
         }
@@ -33,9 +53,8 @@ else{
             Write-host "Instalando pip"
             apt update
             apt install pip
-            Write-Warning "Youtube-DL no detectado"
             write-host "Descargando engine Youtube-DL"
-            pip install youtube-dl
+            python3 -m pip install -U yt-dlp # REDOWNLOAD CORE ################################
             write-host "Reinicie patatatube" -ForegroundColor Cyan
             exit
         }
@@ -168,7 +187,7 @@ elseif($menu -eq 1){
     write-host "URL: $url"
     write-host ""
     write-host "Descargando MP3..." -ForegroundColor Cyan
-    youtube-dl -o '/sdcard/patatatube/%(title)s.%(ext)s' --extract-audio --audio-format mp3 $url
+    yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' --extract-audio --audio-format mp3 $url
     write-host ""
     write-host "Descarga finalizada" -ForegroundColor Cyan
     exit
@@ -180,7 +199,7 @@ elseif($menu -eq 2){
     Clear-Host
     write-host "URL: $url"
     write-host "Obteniendo lista de formatos..." -ForegroundColor Cyan
-    youtube-dl -F $url
+    yt-dlp -F $url
     write-host ""
     write-host "Si hay algun error. escribe [back]" -ForegroundColor Yellow
     write-host "Tambien puedes [best] para la mejor opcion" -ForegroundColor Cyan
@@ -200,7 +219,7 @@ elseif($menu -eq 2){
         }
         write-host ""
         write-host "Descargando el contenido..." -ForegroundColor Cyan
-        youtube-dl -o '/sdcard/patatatube/%(title)s.%(ext)s' -f $fcode $url
+        yt-dlp -o '/sdcard/patatatube/%(title)s.%(ext)s' -f $fcode $url
         write-host ""
         write-host "Descarga finalizada" -ForegroundColor Cyan
         exit
