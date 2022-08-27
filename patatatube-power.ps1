@@ -1,6 +1,6 @@
 #header
 Clear-Host
-write-host "Patatatube Power 0.3"
+write-host "Patatatube Power 0.4"
 #header end
 
 #check dependencies
@@ -123,19 +123,20 @@ else{
 
 write-host "All Check OK" -ForegroundColor Green
 Start-Sleep -s 3
-
+# function ###############################################################
 function geturl{
     $script:url = read-host "Pega la URL aqui"
 }
 write-host ""
 write-host ""
 
-# MenuInvoke
+# MenuInvoke ###############################################################
 $exitmode = $true
 while($exitmode){
     clear-host
-write-host "Patatatube Content Downloader"
-write-host "By pokeinalover"
+write-host "Patatatube Content Downloader" -ForegroundColor Cyan -BackgroundColor White
+write-host "By " -NoNewline
+write-host "pokeinalover" -ForegroundColor Magenta
 write-host ""
 if($url){
     write-host "URL: $url" -ForegroundColor Cyan
