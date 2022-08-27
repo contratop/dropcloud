@@ -1,5 +1,6 @@
 #header
 Clear-Host
+write-host "Patatatube Power 0.3"
 #header end
 
 #check dependencies
