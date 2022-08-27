@@ -1,5 +1,5 @@
 #header pwsh
-$ver = "0.9.2 Development Version"
+$ver = "0.9.3 Development Version"
 Clear-Host
 write-host "Patatatube Power $ver"
 #header end
@@ -174,6 +174,7 @@ write-host "[3] Update"
 write-host "[4] About"
 write-host "[5] Quit"
 write-host ""
+write-host "[more] Opciones avanzadas"
 $menu = read-host "Select number"
 if($menu -eq "url"){
     write-host ""
@@ -244,13 +245,53 @@ elseif($menu -eq 5){
     write-host "Saliendo de patatatube..."
     exit
 }
-elseif($menu -eq "debugupdate"){
-    Write-Warning "Debug Updater"
-    write-host "Only for developers" -ForegroundColor Yellow
-    Remove-Item patatatube-power.ps1
-    Invoke-WebRequest -uri https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1 -OutFile patatatube-power.ps1
-    write-host "Finished!" -ForegroundColor Green
-    exit
+elseif($menu -eq "more"){
+    Clear-Host
+    Write-host "Menu avanzado" -ForegroundColor Cyan
+    write-host ""
+    Write-host "[repair] Reparar Patatatube Power"
+    Write-host "[debugupdate] Actualiza desde github/contratop"
+    write-host "[AnyPrompt] Menu anterior"
+    $menu2 = read-host "Escribe opcion"
+    if($menu2 -eq "repair"){
+        clear-host
+        write-host "Hey tu, si tu"
+        write-host "Si estas intentando reparar patatatube es por que pasa algo"
+        write-host "Escribe tu feedback en github.com/pokeinalover"
+        write-host ""
+        Write-Warning "Al reparar, se reinstalara patatatube y sus dependencias"
+        $continue = read-host "Continuar reparacion? [continue]"
+        if($continue -eq "continue"){
+            write-host "Reparando Patatatube..."
+            write-host ""
+            write-host "Reinstalando dependencias..."
+            apt update
+            apt upgrade -y
+            apt install python -y
+            apt install python3 -y
+            apt install pip -y
+            apt install ffmepg
+            apt install wget
+            pip instal youtube-dl
+            python3 -m pip install -U yt-dlp
+            # INSERTAR RM Y WGET de actualizacion PARA PATATATUBE EN GITHUB POKEINALOVE ######################################################
+            write-host ""
+            write-host "Reparacion completada" -ForegroundColor Green
+            exit
+        }
+        else{
+           write-host "Operacion cancelada" -ForegroundColor Yellow
+           Start-Sleep -s 1
+        }
+    }
+    elseif($menu2 -eq "debugupdate"){
+        Write-Warning "Debug Updater"
+        write-host "Only for developers" -ForegroundColor Yellow
+        Remove-Item patatatube-power.ps1
+        Invoke-WebRequest -uri https://raw.githubusercontent.com/contratop/dropcloud/main/patatatube-power.ps1 -OutFile patatatube-power.ps1
+        write-host "Finished!" -ForegroundColor Green
+        exit
+    }
 }
 else{
     Write-Warning "opcion no valida"
